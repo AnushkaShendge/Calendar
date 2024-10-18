@@ -1,0 +1,48 @@
+# Calendar Application
+
+![image](https://github.com/user-attachments/assets/723d5976-5fea-499a-ade4-f78a06ead291)
+
+
+A simple calendar application that allows users to manage their events. Users can add, view, and delete events with ease. The application utilizes a full-stack approach with a Node.js backend and MongoDB for data storage.
+
+## Table of Contents
+
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Setup](#setup)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Features
+
+- User registration and authentication
+- Add, edit, and delete events
+- View events in different formats (daily, weekly, monthly)
+- Responsive design
+- User-specific event management
+
+## Technologies Used
+
+- **Frontend:** React, Axios, ScheduleX
+- **Backend:** Node.js, Express
+- **Database:** MongoDB
+- **Authentication:** JWT (JSON Web Tokens)
+- **Styling:** CSS, Tailwind CSS (or any other preferred styling)
+
+## Setup
+
+To run this application locally, follow these steps:
+
+### Prerequisites
+
+- Node.js
+- MongoDB
+- npm (Node package manager)
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/calendar-app.git
+cd calendar-app

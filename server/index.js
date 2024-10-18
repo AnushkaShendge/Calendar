@@ -24,7 +24,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
   credentials: true,
-  origin: 'http://localhost:5174', 
+  origin: 'http://localhost:5173', 
 }));
 
 const jwtSec = 'Anu@2345';  // Security key (recommend storing in .env)
@@ -69,3 +69,37 @@ app.get('/calendar/:id', async (req, res) => {
     }
   });
   
+  app.post('/login' , async(req,res) => {
+    const {username , password} = req.body;
+    const userDoc = await User.findOne({username});
+    console.log(userDoc)
+    const matchPass = bcrypt.compareSync(password , userDoc.password);
+    if(matchPass){
+      jwt.sign({userId:userDoc._id , username} , jwtSec , {} , (err , token) => {
+        res.cookie('token' , token).json({
+          id: userDoc._id,
+          username: userDoc.username
+        })
+      })
+    }
+  })
+  app.post('/addEvent/:id', async (req, res) => {
+  const { title, start, end } = req.body;
+  const {id} = req.params;
+
+  // Create a new event instance
+  const event = new Event({
+    userId: id,  
+    title,
+    start,
+    end,
+  });
+
+  try {
+    const savedEvent = await event.save();
+    res.status(201).json(savedEvent);
+  } catch (err) {
+    console.error('Error saving event:', err);
+    res.status(500).json({ error: 'Failed to create event' });
+  }
+});

@@ -8,7 +8,7 @@ function Signup(){
     const [username , setUsername ] = useState('')
     const [password , setPassword] = useState('')
     const [isLoginOrRegister , setIsLoginOrRegister ] = useState('register')
-    const { setId} = useContext(UserContext)
+    const { setId } = useContext(UserContext)
     const [redirect , setRedirect] = useState(false)
 
 

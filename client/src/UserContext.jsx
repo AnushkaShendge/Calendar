@@ -6,7 +6,7 @@ function UserContextProvider({children}){
     const [id , setId] = useState(null);
 
     return (
-        <UserContext.Provider value={{ id , setId}}>
+        <UserContext.Provider value={{ id , setId }}>
             {children}
         </UserContext.Provider>
     )

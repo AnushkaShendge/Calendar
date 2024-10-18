@@ -1,6 +1,6 @@
 # Calendar Application
 
-![image](https://github.com/user-attachments/assets/723d5976-5fea-499a-ade4-f78a06ead291)
+![image](https://github.com/user-attachments/assets/da02d8de-8812-4a53-8aae-f9421da0a1c6)
 
 
 A simple calendar application that allows users to manage their events. Users can add, view, and delete events with ease. The application utilizes a full-stack approach with a Node.js backend and MongoDB for data storage.

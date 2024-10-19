@@ -5,6 +5,8 @@ import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { UserContext } from "../UserContext";  
 import PopUp from "./popUp";
+import { createEventModalPlugin } from '@schedule-x/event-modal'
+import { createDragAndDropPlugin } from '@schedule-x/drag-and-drop'
 
 function Calendar() {
   const [events, setEvents] = useState([]);  
@@ -36,7 +38,8 @@ function Calendar() {
 
       // Log to confirm events have been correctly set
       console.log('Formatted events:', fetchedEvents);
-      calendar.events.set(fetchedEvents);  // Set the events
+      calendar.events.set(fetchedEvents);  
+
       console.log('Events added to calendar:', fetchedEvents);
 
 
@@ -48,6 +51,7 @@ function Calendar() {
         console.error('Invalid date format:', response.data.selectedDate);
         setSelectedDate(formatDate(new Date()));  // Fallback to current date with correct format
       }
+      calendar.selectedDate.set(selectedDate)
     } catch (error) {
       console.error('Error fetching calendar data:', error);  
     }
@@ -62,6 +66,10 @@ function Calendar() {
     ],
     events: events,  // Use the fetched events here
     selectedDate: selectedDate,  // Ensure selectedDate is formatted correctly
+    plugins: [
+      createEventModalPlugin(),
+      createDragAndDropPlugin(),
+    ]
   });
   console.log(calendar)
   return (
